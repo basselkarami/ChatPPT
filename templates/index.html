@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChatPPT</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="static/logo.png">
+</head>
+<body>
+    <div id="inputs">
+        <form action="{{ url_for('generate') }}" method="post" id="inputs-form">
+            <label for="topic">Topic:</label>
+            <input type="text" id="topic" name="topic" required value="the importance of strategy in data & analytics"><br>
+
+            <label for="colors">Colors:</label>
+            <input type="text" id="colors" name="colors" required value="black, blue, gray, teal, and white"><br>
+
+            <label for="look_n_feel">Look n Feel:</label>
+            <input type="text" id="look_n_feel" name="look_n_feel" required value="modern"><br>
+
+            <label for="num_slides"># of slides:</label>
+            <input type="number" id="num_slides" name="num_slides" min="1" max="6" required value="6"><br>
+
+            <input type="submit" value="Generate" onclick="showLoading(form)">
+        </form>
+    </div>
+    <div id="logo">
+        <h1>ChatPPT</h1>
+        <p>Making Slides Great Again</p>
+    </div>
+    <div class="loading" style="display: none;">
+        <p>Generating you slides, please wait, this usually takes a minute...</p>
+    </div>
+    <script>
+        var form = document.getElementById('inputs-form');
+        function showLoading(form) {
+            if (form.checkValidity()) {
+                document.querySelector('.loading').style.display = 'flex';
+            }
+        };
+    </script>
+</body>
+</html>
+
+
